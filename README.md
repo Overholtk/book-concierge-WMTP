@@ -1,4 +1,6 @@
-book-concierge
+Book Finder
+======================================================
+based on https://github.com/nprapps/book-concierge
 ======================================================
 
 This news app is built on our `interactive template <https://github.com/nprapps/interactive-template>`_. Check the readme for that template for more details about the structure and mechanics of the app, as well as how to start your own project.
