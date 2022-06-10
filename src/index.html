@@ -2,9 +2,10 @@
 <html lang="en-US">
   <head>
     <%
+      console.log(grunt.data.json);
       var project = Object.assign({}, grunt.data.json.project, {
-        title: json.copy.socialTitle,
-        description: json.copy.socialDescription
+        title: json.title,
+        description: json.description
       });
     %>
     <%= t.include("partials/_head.html", { project }) %>
@@ -34,32 +35,25 @@
         </a>
         <h1>
           <img src="./assets/books-we-love.svg" alt="">
-          <span class="sr-only"><%= json.copy.title %></span>
+          <span class="sr-only"><%= json.title %></span>
         </h1>
 
-        <% if (json.copy.bylines) { %>
-          <p class="bylines"><%= json.copy.bylines %></p>
-        <% } %>
+
 
         <p class="about-link">
           <a href="about.html">About</a>
         </p>
 
         <!-- <h3>Filters</h3> -->
-        <fieldset class="years" aria-label="Select a year">
-          <% grunt.data.json.years.forEach(function(y) { %>
-          <input type="radio" name="year-radio" id="year-<%= y.year %>" value="<%= y.year %>" <%= y.current ? "checked=checked" : "" %>>
-          <label for="year-<%= y.year %>"><%= y.year %></label>
-          <% }); %>
-        </fieldset>
+
       </div>
     </header>
 
     <div id="ad-centerstage-wrap">&nbsp;</div>
 
     <main class="concierge">
-      <%= t.include("_filters.html") %>
-      <%= t.include("_fab.html") %>
+      <!--include the filters partial here-->
+      <!--include fab partial here-->
 
       <section class="catalog" aria-label="Catalog">
 

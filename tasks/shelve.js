@@ -25,6 +25,7 @@ var shelve = async function(grunt) {
     var lookup = {};
     var links = grunt.data.json.links.filter(l => l.year == year);
     for (var book of collection) {
+      console.log(book);
       // normalize and trim
       book.year = year;
       book.tags = normalizeTags(book.tags || "");

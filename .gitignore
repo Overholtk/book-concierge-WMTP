@@ -10,3 +10,5 @@ data/*.txt
 src/assets/covers
 src/assets/synced
 stage.json
+.env
+service_account.json

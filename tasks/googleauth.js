@@ -13,7 +13,7 @@ var tokenLocation = path.join(os.homedir(), ".google_oauth_token");
 var authenticate = function() {
   var tokens = fs.readFileSync(path.join(os.homedir(), ".google_oauth_token"), "utf-8");
   tokens = JSON.parse(tokens);
-  auth = new google.auth.OAuth2(process.env.GOOGLE_OAUTH_CLIENT_ID, process.env.GOOGLE_OAUTH_CONSUMER_SECRET);
+  auth = new google.auth.OAuth2("781145355280-kt4busf8ont1mnut4jmbl83v4nh4o4ri.apps.googleusercontent.com", "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");
   auth.setCredentials(tokens);
 
   auth.on("tokens", function(update) {
@@ -30,8 +30,8 @@ var task = function(grunt) {
 
     var done = this.async();
 
-    var clientID = process.env.GOOGLE_OAUTH_CLIENT_ID;
-    var secret = process.env.GOOGLE_OAUTH_CONSUMER_SECRET;
+    var clientID = "781145355280-kt4busf8ont1mnut4jmbl83v4nh4o4ri.apps.googleusercontent.com";
+    var secret = "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";
 
     var client = new google.auth.OAuth2(clientID, secret, "http://localhost:8000/authenticate/");
     google.options({ auth: client });
