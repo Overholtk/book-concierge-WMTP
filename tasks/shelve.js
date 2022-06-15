@@ -25,12 +25,20 @@ var shelve = async function(grunt) {
     var lookup = {};
     var links = grunt.data.json.links.filter(l => l.year == year);
     for (var book of collection) {
-      console.log(book);
+      //console.log(book);
       // normalize and trim
       book.year = year;
       book.tags = normalizeTags(book.tags || "");
+      console.log(`book.author: ${book.author}`);
       book.text = grunt.template.renderMarkdown(book.text || "");
-      "title author reviewers text".split(" ").forEach(p => book[p] = book[p].toString().trim());
+      var strings = "title author reviewers text".split(" ");
+      console.log(strings);
+      strings.forEach(p => {
+        console.log(`p (element): ${p}`);
+        console.log(`book[p]: ${book[p]}`);
+        book[p] = book[p].toString()
+        book[p].trim()
+      });
       if (book.isbn) {
         var isbn = String(book.isbn).trim();
         if (isbn.length == 9) isbn = "0" + isbn;
